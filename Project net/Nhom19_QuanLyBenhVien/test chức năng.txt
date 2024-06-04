@@ -1,0 +1,62 @@
+Sever name sql : DESKTOP-4HPV2E5\LISM
+
+TEST CHỨC NĂNG :
+
+
+CRUD :	- Trùng mã trùng tên.
+	- Trùng mã (thêm, sửa mã).
+	- Trùng tên (thêm, sửa trùng tên).
+
+|| k.TenKhoa == etKhoa.TenKhoa
+
+DAL :
+
+var update = db.Khoas.Single(k => k.MaKhoa == etKhoa.MaKhoa || k.TenKhoa == etKhoa.TenKhoa);
+if (update != null)
+{
+    update.TenKhoa = etKhoa.TenKhoa;
+    db.SubmitChanges();
+    return true;
+}
+else
+{
+    return false;
+}
+
+	- Tắt chương trình dữ liệu sửa vẫn còn.
+	- Thoát.
+
+DialogResult a = MessageBox.Show("Hãy chắc chắn rằng bạn muốn thoát khỏi trang này !", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+if (a == DialogResult.Yes)
+{
+    this.Close();
+}
+
+***
+
+Textbox :	- Vượt quá giới hạn ký tự ('\b' check nút xóa).
+
+else if (txtMaKhoa.Text.Length > 11 && e.KeyChar != '\b')
+{
+    e.Handled = true;
+    MessageBox.Show("Không thể nhập mã khoa quá 12 ký tự !", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+}
+
+		- Bỏ trống.
+		- Ký tự đặc biệt.
+		- Khoảng trắng phải có chữ.
+		
+		-----Tìm để xóa.
+
+
+không sửa mã phiếu, toa thuốc
+
+//test bệnh nhân chưa có hồ sơ khám.
+
+****************************
+
+Test sáng :
+
+----sửa giá loại khám sai, đảm nhận chuyên môn sai, sửa bảng giá.
+
+
